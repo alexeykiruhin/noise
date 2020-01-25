@@ -1,0 +1,5 @@
+.Nav {
+  grid-area: nav;
+  background-color: #282c34;
+  min-width: 20vw;
+}

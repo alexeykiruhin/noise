@@ -1,0 +1,9 @@
+.Header {
+  grid-area: header;
+  min-height: 10vh;
+}
+.logo {
+  grid-area: logo;
+  height: 15vmin;
+  pointer-events: none;
+}
