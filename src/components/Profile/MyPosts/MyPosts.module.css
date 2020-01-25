@@ -2,6 +2,10 @@
     grid-area: content;
 }
 
+.newPost {
+    text-align: left;
+}
+
 .posts {
 
 }

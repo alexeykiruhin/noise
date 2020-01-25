@@ -6,15 +6,15 @@ class MyPosts extends Component {
     render() {
         return (
             <div className={css.profile}>
-                ava + description
                 My posts
-                <div>
-                    New post
+                <div className={css.newPost}>
+                    <p>New post</p>
+                    <textarea> </textarea>
+                    <br/>
+                    <button>Post</button>
                 </div>
                 <div className={css.posts}>
-                    <Post/>
-                    <Post/>
-                    <Post/>
+                    <Post />
                 </div>
             </div>
         );

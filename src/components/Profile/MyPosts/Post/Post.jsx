@@ -5,7 +5,14 @@ class Post extends Component {
     render() {
         return (
             <div className={css.item}>
-                post 1
+                <div className={css.header}>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRWH4Cn0WSeEOZD4SN1RmLjJ5Y8zfVPVIloABnItkt4aIoODw1uQ&s" alt="avatar"/>
+                    <span>Hi man, droped liked a? ;)</span>
+                </div>
+                <div className={css.nav}>
+                    <span>Like</span>
+                    <span>Dislike</span>
+                </div>
             </div>
         );
     }

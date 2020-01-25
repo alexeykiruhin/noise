@@ -1,3 +1,31 @@
 .item {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-align: left;
+  background-color: slategray;
+}
+
+.header {
+  margin-bottom: 0.5vh;
+}
+
+.nav {
+  text-align: left;
+  background-color: cadetblue;
+}
+
+.nav span {
+  margin-right: 1vw;
 
 }
+
+.item img {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+}
+
+.item span {
+  margin-left: 1vw;
+}
+
