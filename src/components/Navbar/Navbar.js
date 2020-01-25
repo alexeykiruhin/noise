@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import  css from './Navbar.module.css';
+import css from './Navbar.module.css';
 
 class Navbar extends Component {
   render() {
     return(
       <nav className={css.nav}>
         <div className={`${css.item} ${css.active}`}>
-          <a>Profile</a>
+          <p>Profile</p>
         </div>
         <div className={css.item}>
-          <a>Messages</a>
+          <p>Messages</p>
         </div>
         <div className={css.item}>
-          <a>News</a>
+          <p>News</p>
         </div>
         <div className={css.item}>
-          <a>Settings</a>
+          <p>Settings</p>
         </div>
       </nav>
     );
