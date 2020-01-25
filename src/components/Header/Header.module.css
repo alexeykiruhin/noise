@@ -4,8 +4,9 @@
   grid-template-areas:
   "logo info";
   grid-template-rows: 10vh 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 2fr 7fr;
   min-height: 10vh;
+  background-color: aqua;
 }
 
 .header img {

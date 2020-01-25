@@ -1,11 +1,13 @@
 .App {
+  margin: auto;
+  max-width: 1200px;
   display: grid;
   grid-template-areas:
   "header header"
   "nav content";
   grid-template-rows: 10vh 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 2vw;
+  grid-gap: 0.5vw;
   text-align: center;
 }
 
