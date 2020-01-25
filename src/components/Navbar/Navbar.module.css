@@ -1,13 +1,13 @@
 .nav {
-  grid-area: nav;
-  background-color: #282c34;
-  min-width: 20vw;
+    grid-area: nav;
+    background-color: #282c34;
+    min-width: 20vw;
 }
 
 .item {
-  color: white;
+    color: white;
 }
 
 .item.active {
-  color: gold;
+    color: gold;
 }

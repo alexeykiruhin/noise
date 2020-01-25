@@ -1,21 +1,20 @@
 .header {
-  display: grid;
-  grid-area: header;
-  grid-template-areas:
-  "logo info";
-  grid-template-rows: 10vh 1fr;
-  grid-template-columns: 2fr 7fr;
-  min-height: 10vh;
-  background-color: aqua;
+    display: grid;
+    grid-area: header;
+    grid-template-areas: "logo info";
+    grid-template-rows: 10vh 1fr;
+    grid-template-columns: 2fr 7fr;
+    min-height: 10vh;
+    background-color: aqua;
 }
 
 .header img {
-  grid-area: logo;
-  height: 10vh;
-  pointer-events: none;
+    grid-area: logo;
+    height: 10vh;
+    pointer-events: none;
 }
 
 .info {
-  grid-area: info;
-  text-align: right;
+    grid-area: info;
+    text-align: right;
 }
