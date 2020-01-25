@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.png'
 import  css from './Header.module.css';
 
-class App extends Component {
+class Header extends Component {
   render() {
     return(
-      <header className={css.Header}>
-        <img src={logo} className="logo" alt="logo" />
-        <span>Phone number: +123456789</span>
+      <header className={css.header}>
+        <img src={logo} alt="logo" />
+        <div className={css.info}>Information</div>
       </header>
     );
   }
 }
 
-export default App
+export default Header;

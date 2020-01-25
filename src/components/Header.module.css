@@ -1,9 +1,20 @@
-.Header {
+.header {
+  display: grid;
   grid-area: header;
+  grid-template-areas:
+  "logo info";
+  grid-template-rows: 10vh 1fr;
+  grid-template-columns: 2fr 10fr;
   min-height: 10vh;
 }
-.logo {
+
+.header img {
   grid-area: logo;
-  height: 15vmin;
+  height: 10vh;
   pointer-events: none;
+}
+
+.info {
+  grid-area: info;
+  text-align: right;
 }

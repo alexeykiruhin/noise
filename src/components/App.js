@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
 import Header from './Header';
 import Navbar from './Navbar';
 import Profile from './Profile';
-//import './App.css';
+import './App.css';
 
 class App extends Component {
   render() {
