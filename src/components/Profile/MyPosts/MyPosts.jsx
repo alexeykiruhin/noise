@@ -14,7 +14,8 @@ class MyPosts extends Component {
                     <button>Post</button>
                 </div>
                 <div className={css.posts}>
-                    <Post />
+                    <Post msg='Hi man, droped liked a? ;)'/>
+                    <Post msg='Waaasaap man!'/>
                 </div>
             </div>
         );
