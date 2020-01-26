@@ -1,4 +1,4 @@
-.App {
+.app-wrapper {
   margin: auto;
   max-width: 1200px;
   display: grid;
@@ -11,6 +11,10 @@
   text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.app-wrapper-content {
+  grid-area: content;
+  min-height: 60vh;
+  background-color: aqua;
 }
+
+

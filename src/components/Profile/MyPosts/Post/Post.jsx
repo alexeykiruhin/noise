@@ -6,6 +6,7 @@ class Post extends Component {
         super(props);
         this.msg = props.msg;
     }
+    
     render() {
         return (
             <div className={css.item}>

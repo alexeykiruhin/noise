@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import css from './Navbar.module.css';
+import { NavLink } from 'react-router-dom';
 
 class Navbar extends Component {
   render() {
     return(
       <nav className={css.nav}>
-        <div className={`${css.item} ${css.active}`}>
-          <p>Profile</p>
+        <div className={css.item}>
+          <NavLink to="/profile" activeClassName={css.active}>Profile</NavLink>
         </div>
         <div className={css.item}>
-          <p>Messages</p>
+          <NavLink to="/dialogs" activeClassName={css.active}>Messages</NavLink>
         </div>
         <div className={css.item}>
-          <p>News</p>
+          <NavLink to="/news" activeClassName={css.active}>News</NavLink>
         </div>
         <div className={css.item}>
-          <p>Settings</p>
+          <NavLink to="/settings" activeClassName={css.active}>Settings</NavLink>
         </div>
       </nav>
     );
