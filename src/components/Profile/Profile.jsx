@@ -6,14 +6,14 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.messages = props.messages;
+        this.posts = props.posts;
     }
 
     render() {
         return (
             <div className={css.profile}>
                 <ProfileInfo/>
-                <MyPosts messages={this.messages}/>
+                <MyPosts posts={this.posts}/>
             </div>
         );
     }

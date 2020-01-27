@@ -11,7 +11,10 @@ import Communication from "./Communication/Communication";
 class App extends Component {
     constructor(props) {
         super(props);
-        this.messages = props.messages;
+        this.messages = props.AppState.messages;
+        console.log(this.messages);
+        this.names = props.AppState.names;
+        this.posts = props.AppState.posts;
     }
 
     render() {
@@ -24,9 +27,17 @@ class App extends Component {
                         <Route
                             exact
                             path='/profile'
-                            render={(props) => <Profile {...props} messages={this.messages} />}
+                            render={(props) => <Profile {...props} posts={this.posts}/>}
                         />
-                        <Route exact path='/communication' component={Communication}/>
+                        <Route
+                            exact
+                            path='/'
+                            render={(props) => <Profile {...props} posts={this.posts}/>}
+                        />
+                        <Route
+                            path='/communication'
+                            render={(props) => <Communication {...props} messages={this.messages} names={this.names} />}
+                        />
                         <Route exact path='/news' component={News}/>
                         <Route exact path='/settings' component={Settings}/>
                     </div>

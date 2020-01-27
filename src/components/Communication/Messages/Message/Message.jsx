@@ -5,6 +5,7 @@ class Message extends Component {
     constructor(props) {
         super(props);
         this.message = props.message;
+        this.id = props.id;
     }
     render() {
         return (

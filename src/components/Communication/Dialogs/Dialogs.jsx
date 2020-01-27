@@ -2,12 +2,15 @@ import React, {Component} from 'react';
 import css from './Dialogs.module.css';
 import Dialog from "./Dialog/Dialog";
 
-//Test data
-const names = ['Alex', 'Dima', 'Jordan', 'Beavis', 'Butthead'];
-const listNames = names.map(name => <Dialog name={name} id={names.indexOf(name)} />);
-
 class Dialogs extends Component {
+    constructor(props) {
+        super(props);
+        //this.messages = props.messages;
+        this.names = props.names;
+    }
+
     render() {
+        const listNames = this.names.map(name => <Dialog name={name.name} id={name.id} />);
         return (
             <div className={css.dialogs}>
                 {listNames}
