@@ -6,7 +6,7 @@ import state, {addPost, changeValue, subscribe} from "./state/state";
 import {BrowserRouter} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
-let reRender = () => {
+let reRender = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={state} addPost={addPost} changeValue={changeValue}/>

@@ -35,12 +35,12 @@ export const addPost = () => {
     let newPost = {id: 5, text: state.profilePage.value};
     state.profilePage.posts.push(newPost);
     state.profilePage.value = '';
-    reRender(state);
+    reRender();
 };
 
 export const changeValue = (text) => {
-    state.profilePage.value = text;
-    reRender(state);
+    state.profilePage.value += text;
+    reRender();
 };
 
 export const subscribe = (observer) => {
