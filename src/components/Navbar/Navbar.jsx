@@ -10,7 +10,7 @@ class Navbar extends Component {
           <NavLink to="/profile" activeClassName={css.active}>Profile</NavLink>
         </div>
         <div className={css.item}>
-          <NavLink to="/dialogs" activeClassName={css.active}>Messages</NavLink>
+          <NavLink to="/communication" activeClassName={css.active}>Communication</NavLink>
         </div>
         <div className={css.item}>
           <NavLink to="/news" activeClassName={css.active}>News</NavLink>

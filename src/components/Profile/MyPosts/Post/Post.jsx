@@ -4,6 +4,7 @@ import css from './Post.module.css';
 class Post extends Component {
     constructor(props) {
         super(props);
+        this.id = props.id;
         this.msg = props.msg;
     }
     
@@ -11,6 +12,7 @@ class Post extends Component {
         return (
             <div className={css.item}>
                 <div className={css.header}>
+                    {this.id}
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRWH4Cn0WSeEOZD4SN1RmLjJ5Y8zfVPVIloABnItkt4aIoODw1uQ&s" alt="avatar"/>
                     <span>{this.msg}</span>
                 </div>

@@ -6,9 +6,14 @@ import News from './News/News';
 import Settings from './Settings/Settings';
 import './App.css';
 import { Route, BrowserRouter } from 'react-router-dom';
-import Dialogs from "./Dialogs/Dialogs";
+import Communication from "./Communication/Communication";
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.messages = props.messages;
+    }
+
     render() {
         return (
             <BrowserRouter>
@@ -16,10 +21,14 @@ class App extends Component {
                     <Header/>
                     <Navbar/>
                     <div className="app-wrapper-content">
-                        <Route path='/profile' component={Profile} />
-                        <Route path='/dialogs' component={Dialogs}/>
-                        <Route path='/news' component={News}/>
-                        <Route path='/settings' component={Settings}/>
+                        <Route
+                            exact
+                            path='/profile'
+                            render={(props) => <Profile {...props} messages={this.messages} />}
+                        />
+                        <Route exact path='/communication' component={Communication}/>
+                        <Route exact path='/news' component={News}/>
+                        <Route exact path='/settings' component={Settings}/>
                     </div>
                 </div>
             </BrowserRouter>

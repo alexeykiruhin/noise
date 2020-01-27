@@ -1,11 +1,14 @@
 .nav {
     grid-area: nav;
     background-color: #282c34;
-    min-width: 20vw;
+    min-width: 15vw;
+    padding-top: 15px;
 }
 
 .item {
     color: white;
+    padding-left: 20px;
+    padding-top: 5px;
 }
 
 .item a.active {

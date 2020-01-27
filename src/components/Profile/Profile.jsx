@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
 import css from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+        this.messages = props.messages;
+    }
+
     render() {
         return (
-            <div>
-                <img src="https://nysurfsoccer.org/wp-content/uploads/2017/03/IMG.png" alt="img"/>
-                <MyPosts/>
+            <div className={css.profile}>
+                <ProfileInfo/>
+                <MyPosts messages={this.messages}/>
             </div>
         );
     }

@@ -1,5 +1,7 @@
-.profile {
+.postWrapper {
     grid-area: content;
+
+    padding: 5px;
 }
 
 .newPost {
@@ -7,5 +9,5 @@
 }
 
 .posts {
-
+    margin-top: 5px;
 }

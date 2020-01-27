@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
 import css from './MyPosts.module.css';
 import Post from "./Post/Post";
+import Dialog from "../../Communication/Dialogs/Dialog/Dialog";
+
 
 class MyPosts extends Component {
+    constructor(props) {
+        super(props);
+        this.messages = props.messages;
+    }
+
     render() {
+        const listPost = this.messages.map(item => <Post msg={item.text} id={item.id}/>);
         return (
-            <div className={css.profile}>
-                My posts
+            <div className={css.postWrapper}>
+                <h3>My posts</h3>
                 <div className={css.newPost}>
                     <p>New post</p>
                     <textarea> </textarea>
@@ -14,12 +22,11 @@ class MyPosts extends Component {
                     <button>Post</button>
                 </div>
                 <div className={css.posts}>
-                    <Post msg='Hi man, droped liked a? ;)'/>
-                    <Post msg='Waaasaap man!'/>
+                    {listPost}
                 </div>
             </div>
         );
     }
 }
 
-export default MyPosts
+export default MyPosts;
