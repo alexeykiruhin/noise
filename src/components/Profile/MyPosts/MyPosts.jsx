@@ -9,7 +9,6 @@ class MyPosts extends Component {
         this.posts = props.profilePage.posts;
         this.value = props.profilePage.value;
         this.addPost = props.addPost;
-        this.changeValue = props.changeValue;
         this.handleChange = this.handleChange.bind(this);
         this.handleAddPost = this.handleAddPost.bind(this);
     }
@@ -22,7 +21,7 @@ class MyPosts extends Component {
 
     handleChange(e) {
         let text = e.target.value;
-        this.changeValue(text);
+        this.props.changeNewPostText(text);
     }
 
     render() {
@@ -32,7 +31,7 @@ class MyPosts extends Component {
                 <h3>My posts</h3>
                 <div className={css.newPost}>
                     <p>New post</p>
-                    <textarea value={this.value} onChange={this.handleChange} />
+                    <textarea value={this.props.profilePage.value} onChange={this.handleChange} />
                     <br/>
                     <button onClick={this.handleAddPost}>Post</button>
                 </div>

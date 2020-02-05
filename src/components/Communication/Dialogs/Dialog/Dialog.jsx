@@ -3,15 +3,11 @@ import css from './Dialog.module.css';
 import { NavLink } from 'react-router-dom';
 
 class Dialog extends Component {
-    constructor(props) {
-        super(props);
-        this.name = props.name;
-        this.id = props.id;
-    }
     render() {
+        let path = "/communication/" + this.props.id;
         return (
             <div className={css.dialog + ' ' + css.active}>
-                <NavLink to={"/communication/" + this.id} activeClassName={css.active}>{this.name}</NavLink>
+                <NavLink to={path} activeClassName={css.active}>{this.props.name}</NavLink>
             </div>
         );
     }

@@ -1,20 +1,19 @@
 import React, {Component} from 'react';
-import Header from './Header/Header';
-import Navbar from './Navbar/Navbar';
-import Profile from './Profile/Profile';
-import News from './News/News';
-import Settings from './Settings/Settings';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+import Profile from './components/Profile/Profile';
+import News from './components/News/News';
+import Settings from './components/Settings/Settings';
 import './App.css';
 import { Route } from 'react-router-dom';
-import Communication from "./Communication/Communication";
+import Communication from "./components/Communication/Communication";
 
 class App extends Component {
     constructor(props) {
         super(props);
+        console.log(props.state);
         this.profilePage = props.state.profilePage;
         this.communication = props.state.communication;
-        this.addPost = props.addPost;
-        this.changeValue = props.changeValue;
     }
 
     render() {
@@ -23,20 +22,20 @@ class App extends Component {
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-
                     <Route
                         exact
                         path='/profile'
-                        render={(props) => <Profile {...props} profilePage={this.profilePage} addPost={this.addPost} changeValue={this.changeValue} />}
+                        render={(props) =>
+                            <Profile {...props} profilePage={this.profilePage}
+                                                    addPost={this.props.addPost}
+                                                    changeNewPostText={this.props.changeNewPostText} />
+                        }
                     />
-                    {/*<Route*/}
-                    {/*    exact*/}
-                    {/*    path='/'*/}
-                    {/*    render={(props) => <Profile {...props} profilePage={this.profilePage} addPost={this.addPost} changeValue={this.changeValue} />}*/}
-                    {/*/>*/}
                     <Route
                         path='/communication'
-                        render={(props) => <Communication {...props} communication={this.communication} />}
+                        render={(props) =>
+                            <Communication {...props} communication={this.communication} />
+                        }
                     />
                     <Route exact path='/news' component={News}/>
                     <Route exact path='/settings' component={Settings}/>

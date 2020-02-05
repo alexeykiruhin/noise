@@ -2,14 +2,9 @@ import React, {Component} from 'react';
 import css from './Message.module.css';
 
 class Message extends Component {
-    constructor(props) {
-        super(props);
-        this.message = props.message;
-        this.id = props.id;
-    }
     render() {
         return (
-            <div className={css.message}>{this.message}</div>
+            <div className={css.message}>{this.props.message}</div>
         );
     }
 }

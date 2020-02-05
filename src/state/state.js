@@ -1,5 +1,3 @@
-let reRender = () => console.log('state changed');
-
 let state = {
     profilePage: {
         posts: [
@@ -28,23 +26,29 @@ let state = {
         ]
     }
 };
+let reRender = () => {
+    console.log('State was changed')
+};
 
 window.state = state;
 
 export const addPost = () => {
-    let newPost = {id: 5, text: state.profilePage.value};
+    const id = state.profilePage.posts.length;
+    const text = state.profilePage.value;
+    let newPost = {id, text};
     state.profilePage.posts.push(newPost);
     state.profilePage.value = '';
-    reRender();
+    reRender(state);
 };
 
-export const changeValue = (text) => {
-    state.profilePage.value += text;
-    reRender();
+export const changeNewPostText = (text) => {
+    console.log('text' + text);
+    state.profilePage.value = text;
+    reRender(state);
 };
 
 export const subscribe = (observer) => {
-    reRender = observer;
+    reRender = observer; //observer - наблюдатель
 };
 
 export default state;

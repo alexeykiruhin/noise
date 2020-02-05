@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import css from './Communication.module.css';
-import { NavLink } from 'react-router-dom';
 import Dialogs from "./Dialogs/Dialogs";
 import Messages from "./Messages/Messages";
 
