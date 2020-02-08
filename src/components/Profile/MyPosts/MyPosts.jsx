@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import css from './MyPosts.module.css';
 import Post from "./Post/Post";
+import {addPostActionCreator, updateNewPostActionCreator} from "../../../state/state";
+
 
 
 class MyPosts extends Component {
@@ -8,20 +10,21 @@ class MyPosts extends Component {
         super(props);
         this.posts = props.profilePage.posts;
         this.value = props.profilePage.value;
-        this.addPost = props.addPost;
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeTextArea = this.handleChangeTextArea.bind(this);
         this.handleAddPost = this.handleAddPost.bind(this);
     }
 
 
     handleAddPost() {
-        this.addPost();
+        console.log('add');
+        this.props.dispatch(addPostActionCreator());
     }
 
 
-    handleChange(e) {
+    handleChangeTextArea(e) {
         let text = e.target.value;
-        this.props.changeNewPostText(text);
+        let action = updateNewPostActionCreator(text);
+        this.props.dispatch(action);
     }
 
     render() {
@@ -31,7 +34,7 @@ class MyPosts extends Component {
                 <h3>My posts</h3>
                 <div className={css.newPost}>
                     <p>New post</p>
-                    <textarea value={this.props.profilePage.value} onChange={this.handleChange} />
+                    <textarea value={this.props.profilePage.value} onChange={this.handleChangeTextArea} />
                     <br/>
                     <button onClick={this.handleAddPost}>Post</button>
                 </div>

@@ -10,8 +10,7 @@ class Profile extends Component {
             <div className={css.profile}>
                 <ProfileInfo />
                 <MyPosts profilePage={this.props.profilePage}
-                         addPost={this.props.addPost}
-                         changeNewPostText={this.props.changeNewPostText}/>
+                         dispatch={this.props.dispatch} />
             </div>
         );
     }

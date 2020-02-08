@@ -11,7 +11,6 @@ import Communication from "./components/Communication/Communication";
 class App extends Component {
     constructor(props) {
         super(props);
-        console.log(props.state);
         this.profilePage = props.state.profilePage;
         this.communication = props.state.communication;
     }
@@ -27,8 +26,7 @@ class App extends Component {
                         path='/profile'
                         render={(props) =>
                             <Profile {...props} profilePage={this.profilePage}
-                                                    addPost={this.props.addPost}
-                                                    changeNewPostText={this.props.changeNewPostText} />
+                                     dispatch={this.props.dispatch} />
                         }
                     />
                     <Route
