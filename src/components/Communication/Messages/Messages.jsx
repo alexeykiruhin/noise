@@ -5,7 +5,7 @@ import Message from "./Message/Message";
 class Messages extends Component {
     render() {
         const listMsg = this.props.messages.map(msg =>
-            <Message message={msg} id={this.props.messages.indexOf(msg)} />
+            <Message message={msg.message} id={msg.id} />
             );
         return (
             <div className={css.messages}>

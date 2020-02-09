@@ -8,8 +8,6 @@ import {addPostActionCreator, updateNewPostActionCreator} from "../../../state/s
 class MyPosts extends Component {
     constructor(props) {
         super(props);
-        this.posts = props.profilePage.posts;
-        this.value = props.profilePage.value;
         this.handleChangeTextArea = this.handleChangeTextArea.bind(this);
         this.handleAddPost = this.handleAddPost.bind(this);
     }
@@ -28,13 +26,14 @@ class MyPosts extends Component {
     }
 
     render() {
-        const listPost = this.posts.map(post => <Post msg={post.text} id={post.id} />);
+        const listPost = this.props.profilePage.posts.map(post => <Post msg={post.text} id={post.id} />);
         return (
             <div className={css.postWrapper}>
                 <h3>My posts</h3>
                 <div className={css.newPost}>
                     <p>New post</p>
-                    <textarea value={this.props.profilePage.value} onChange={this.handleChangeTextArea} />
+                    <textarea value={this.props.profilePage.value}
+                              onChange={this.handleChangeTextArea} />
                     <br/>
                     <button onClick={this.handleAddPost}>Post</button>
                 </div>

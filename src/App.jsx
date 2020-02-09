@@ -32,7 +32,8 @@ class App extends Component {
                     <Route
                         path='/communication'
                         render={(props) =>
-                            <Communication {...props} communication={this.communication} />
+                            <Communication {...props} communication={this.communication}
+                                           dispatch={this.props.dispatch} />
                         }
                     />
                     <Route exact path='/news' component={News}/>
