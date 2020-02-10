@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from "react-router-dom";
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import store from "./state/state";
+import store from "./redux/redux_store";
 import App from './App';
 
 let reRender = (state) => {
@@ -14,7 +14,7 @@ let reRender = (state) => {
     );
 };
 reRender(store.getState());
-store.subscribe(reRender);
+store.subscribe(() => reRender(store.getState()));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

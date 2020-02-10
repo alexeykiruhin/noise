@@ -11,8 +11,8 @@ import Communication from "./components/Communication/Communication";
 class App extends Component {
     constructor(props) {
         super(props);
-        this.profilePage = props.state.profilePage;
-        this.communication = props.state.communication;
+        this.profilePage = props.state.profileReducer;
+        this.communication = props.state.communicationReducer;
     }
 
     render() {

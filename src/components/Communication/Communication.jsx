@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import css from './Communication.module.css';
 import Dialogs from "./Dialogs/Dialogs";
 import Messages from "./Messages/Messages";
-import {sendMessageActionCreator, updateNewMessageActionCreator} from "../../state/state";
+import {sendMessageActionCreator, updateNewMessageActionCreator} from "../../redux/communictaion_reducer";
 
 class Communication extends Component {
     constructor(props) {
