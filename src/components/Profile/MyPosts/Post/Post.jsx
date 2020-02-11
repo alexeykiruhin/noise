@@ -1,20 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import css from './Post.module.css';
 
-class Post extends Component {
-    constructor(props) {
-        super(props);
-        this.id = props.id;
-        this.msg = props.msg;
-    }
-    
-    render() {
+const Post = (props) => {
+
         return (
             <div className={css.item}>
                 <div className={css.header}>
-                    {this.id}
+                    {props.id}
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRWH4Cn0WSeEOZD4SN1RmLjJ5Y8zfVPVIloABnItkt4aIoODw1uQ&s" alt="avatar"/>
-                    <span>{this.msg}</span>
+                    <span>{props.msg}</span>
                 </div>
                 <div className={css.nav}>
                     <span>Like</span>
@@ -22,7 +16,6 @@ class Post extends Component {
                 </div>
             </div>
         );
-    }
-}
+};
 
 export default Post
