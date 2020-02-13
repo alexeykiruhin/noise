@@ -24,15 +24,20 @@ const communicationReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.text;
-            return state;
+            return Object.assign({}, state, {
+                newMessageText: action.text,
+            });
         case SEND_MESSAGE:
             const idMsg = state.messages.length;
             const message = state.newMessageText;
             let newMsg = {id: idMsg, message: message};
-            state.messages.push(newMsg);
-            state.newMessageText = '';
-            return state;
+            let msgs = state.messages;
+            msgs.push(newMsg);
+
+            return Object.assign({}, state, {
+                newMessageText: '',
+                messages: msgs
+            });
         default:
             return state;
     }

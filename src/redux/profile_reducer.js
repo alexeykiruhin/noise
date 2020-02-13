@@ -9,7 +9,7 @@ let initialState = {
         {id: 3, text: 'Tralala humans;)'},
         {id: 4, text: 'Ko ko djambo dudes?'}
     ] ,
-    value: ''
+    newPostText : ''
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -17,14 +17,19 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             const id = state.posts.length;
-            const text = state.value;
+            const text = state.newPostText;
             let newPost = {id: id, text: text};
-            state.posts.push(newPost);
-            state.value = '';
-            return state;
+            let psts = state.posts;
+            psts.push(newPost);
+
+            return Object.assign({}, state, {
+                newPostText: '',
+                posts: psts
+            });
         case UPDATE_NEW_POST_TEXT:
-            state.value = action.text;
-            return state;
+            return Object.assign({}, state, {
+                newPostText: action.text,
+            });
         default:
             return state;
     }

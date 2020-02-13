@@ -2,28 +2,25 @@ import React from 'react';
 import css from './Communication.module.css';
 import Dialogs from "./Dialogs/Dialogs";
 import Messages from "./Messages/Messages";
-import {sendMessageActionCreator, updateNewMessageActionCreator} from "../../redux/communictaion_reducer";
 
 const Communication = (props) => {
 
     let handleUpdateNewMsg = (e) => {
         let text = e.target.value;
-        let action = updateNewMessageActionCreator(text);
-        props.dispatch(action);
+        props.updateNewMessage(text);
     };
 
     let handleNewMsg = () => {
-        let action = sendMessageActionCreator();
-        props.dispatch(action);
+        props.sendMessage();
     };
 
     return (
         <div className={css.communication}>
-            <Dialogs names={props.communication.names}/>
-            <Messages messages={props.communication.messages}/>
+            <Dialogs names={props.names}/>
+            <Messages messages={props.messages}/>
             <div className={css.newMsg}>
                 <p>New msg</p>
-                <textarea value={props.communication.newMessageText}
+                <textarea value={props.newMessageText}
                           onChange={handleUpdateNewMsg}/>
                 <br/>
                 <button onClick={handleNewMsg}>Send</button>

@@ -3,28 +3,24 @@ import css from './MyPosts.module.css';
 import Post from "./Post/Post";
 import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile_reducer";
 
-
 const MyPosts = (props) => {
 
     let handleAddPost = () => {
-        console.log('add');
-        props.dispatch(addPostActionCreator());
+        props.addPost();
     };
 
     let handleChangeTextArea = (e) => {
         let text = e.target.value;
-        let action = updateNewPostActionCreator(text);
-        props.dispatch(action);
+        props.updateNewPostText(text);
     };
-
-    const listPost = props.profilePage.posts.map(post => <Post msg={post.text} id={post.id} />);
+    const listPost = props.posts.map(post => <Post msg={post.text} id={post.id} />);
 
     return (
         <div className={css.postWrapper}>
             <h3>My posts</h3>
             <div className={css.newPost}>
                 <p>New post</p>
-                <textarea value={props.profilePage.value}
+                <textarea value={props.newPostText}
                           onChange={handleChangeTextArea}/>
                 <br/>
                 <button onClick={handleAddPost}>Post</button>
