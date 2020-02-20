@@ -5,7 +5,7 @@ import Message from "./Message/Message";
 const Messages = (props) => {
 
     const listMsg = props.messages.map(msg =>
-        <Message message={msg.message} id={msg.id}/>
+        <Message message={msg.message} key={msg.id} id={msg.id}/>
     );
     return (
         <div className={css.messages}>

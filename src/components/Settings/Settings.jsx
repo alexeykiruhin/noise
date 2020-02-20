@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import css from './Settings.module.css';
+// import css from './Settings.module.css';
 
 class Settings extends Component {
     render() {

@@ -1,7 +1,6 @@
 import React from 'react';
 import css from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile_reducer";
 
 const MyPosts = (props) => {
 
@@ -13,7 +12,7 @@ const MyPosts = (props) => {
         let text = e.target.value;
         props.updateNewPostText(text);
     };
-    const listPost = props.posts.map(post => <Post msg={post.text} id={post.id} />);
+    const listPost = props.posts.map(post => <Post msg={post.text} key={post.id} id={post.id} />);
 
     return (
         <div className={css.postWrapper}>

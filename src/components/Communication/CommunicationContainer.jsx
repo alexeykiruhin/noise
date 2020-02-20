@@ -1,4 +1,3 @@
-import React from 'react';
 import {sendMessageActionCreator, updateNewMessageActionCreator} from "../../redux/communictaion_reducer";
 import Communication from "./Communication";
 import {connect} from "react-redux";
