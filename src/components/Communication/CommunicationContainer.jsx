@@ -2,14 +2,14 @@ import {sendMessageActionCreator, updateNewMessageActionCreator} from "../../red
 import Communication from "./Communication";
 import {connect} from "react-redux";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         names: state.communication.names,
         messages: state.communication.messages,
         newMessageText: state.communication.newMessageText
     }
 };
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         updateNewMessage: (text) => {
             let action = updateNewMessageActionCreator(text);

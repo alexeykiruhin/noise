@@ -7,6 +7,7 @@ import Settings from './components/Settings/Settings';
 import './App.css';
 import {Route} from 'react-router-dom';
 import CommunicationContainer from "./components/Communication/CommunicationContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = (props) => {
     return (
@@ -15,13 +16,15 @@ const App = (props) => {
             <Navbar/>
             <div className="app-wrapper-content">
                 <Route path='/profile'
-                       render={ () => <Profile store={props.store}/> } />
+                       render={ () => <Profile store={props.store} /> } />
                 <Route path='/communication'
                        render={ () => <CommunicationContainer /> } />
                 <Route path='/news'
                        component={News} />
                 <Route path='/settings'
                        component={Settings} />
+                <Route path='/users'
+                       render={ () => <UsersContainer /> } />
             </div>
         </div>
     );
