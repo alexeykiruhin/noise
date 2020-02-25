@@ -55,21 +55,64 @@ import user_no_photo from "../../images/user_no_photo_100x100.png"
 // };
 
 class Users extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            totalCount: null,
+            pageCount: [],
+            pageItemsCount: 4,
+            currentPage: 1,
+        };
+    }
 
-    getUsers = () => {
+    getUsers = (page) => {
         axios
-            .get("https://social-network.samuraijs.com/api/1.0/users?count=4")
-            .then(response => {
-                this.props.setUsers(response.data.items);
+            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=4`)
+            .then(res => {
+                let totalCount = res.data.totalCount;
+                console.log('1 '+res.data.totalCount);
+                let pCnt = Math.ceil((totalCount / this.state.pageItemsCount));
+                let pageCount = [];
+                for (let i = 1; i <= pCnt; i++) {
+                    pageCount.push(i);
+                }
+                this.setState({totalCount, pageCount});
+                this.props.setUsers(res.data.items);
             });
     };
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.getUsers();
-    }
+    };
+
+    changePage = (currentPage) => {
+        this.getUsers(currentPage);
+        this.setState({
+           currentPage
+        });
+    };
+
+    pagination = () => {
+        let pages = this.state.pageCount;
+        let visionPages = [
+            ...pages.slice(this.state.currentPage-1, this.state.currentPage + 2),
+            '...',
+            ...pages.slice(-3)
+        ];
+        console.log(pages.slice(0, 3));
+        return visionPages.map(p => {
+            return <span
+                className={this.state.currentPage === p ? css.selectPage : ''}
+                onClick={() => this.changePage(p)}
+            >{p} </span>
+        });
+    };
 
     render = () => {
         return <div>
+            <div>
+                {this.pagination()}
+            </div>
             {
                 this.props.users.map(u => <div key={u.id}>
                     <div>
@@ -103,7 +146,7 @@ class Users extends Component {
                 </div>)
             }
         </div>
-    }
+    };
 }
 
 export default Users;

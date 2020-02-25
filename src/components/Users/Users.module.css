@@ -1,3 +1,7 @@
-div {
-    color: white;
+.selectPage {
+    font-weight: bold;
+}
+
+span {
+    cursor: pointer;
 }
