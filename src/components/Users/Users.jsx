@@ -56,9 +56,9 @@ import user_no_photo from "../../images/user_no_photo_100x100.png"
 
 class Users extends Component {
 
-    getUsers = (page) => {
+    getUsers = () => {
         axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=4`)
+            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(res => {
                 this.props.setUsers(res.data.items);
                 this.props.getUsersTotalCount(res.data.totalCount);
@@ -69,29 +69,47 @@ class Users extends Component {
         this.getUsers();
     };
 
-    changePage = (currentPage) => {
-        this.getUsers(currentPage);
-        this.props.changeCurrentPage(currentPage);
-    };
-
     pagination = () => {
-        let pagesCount = this.props.totalUsersCount / this.props.pageSize;
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
         let pages = [];
         for (let i = 1; i <= pagesCount; i++) {
             pages.push(i);
         }
+
         let visionPages = [
             ...pages.slice(this.props.currentPage - 1, this.props.currentPage + 2),
             '...',
             ...pages.slice(-3)
         ];
-        return visionPages.map(p => {
+
+        let pagesNumbers =  visionPages.map(p => {
             return <span
                 key={p}
                 className={this.props.currentPage === p ? css.selectPage : ''}
-                onClick={() => this.changePage(p)}
+                onClick={() => changePage(p)}
             >{p} </span>
-        })
+        });
+
+        let changePage = (currentPage) => {
+            this.getUsers(currentPage);
+            this.props.changeCurrentPage(currentPage);
+        };
+
+        let backPage = (currentPage) => {
+            this.getUsers(currentPage-1);
+            this.props.changeCurrentPage(currentPage-1);
+        };
+
+        let forwardPage = (currentPage) => {
+            this.getUsers(currentPage+1);
+            this.props.changeCurrentPage(currentPage+1);
+        };
+
+        return <span>
+            <span onClick={() => backPage(this.props.currentPage)}>{'<'} </span>
+            {pagesNumbers}
+            <span onClick={() => forwardPage(this.props.currentPage)}> {'>'}</span>
+        </span>
     };
 
     render = () => {
