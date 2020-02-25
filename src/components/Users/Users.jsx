@@ -70,7 +70,6 @@ class Users extends Component {
             .get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=4`)
             .then(res => {
                 let totalCount = res.data.totalCount;
-                console.log('1 '+res.data.totalCount);
                 let pCnt = Math.ceil((totalCount / this.state.pageItemsCount));
                 let pageCount = [];
                 for (let i = 1; i <= pCnt; i++) {
@@ -88,20 +87,20 @@ class Users extends Component {
     changePage = (currentPage) => {
         this.getUsers(currentPage);
         this.setState({
-           currentPage
+            currentPage
         });
     };
 
     pagination = () => {
         let pages = this.state.pageCount;
         let visionPages = [
-            ...pages.slice(this.state.currentPage-1, this.state.currentPage + 2),
+            ...pages.slice(this.state.currentPage - 1, this.state.currentPage + 2),
             '...',
             ...pages.slice(-3)
         ];
-        console.log(pages.slice(0, 3));
         return visionPages.map(p => {
             return <span
+                key={p}
                 className={this.state.currentPage === p ? css.selectPage : ''}
                 onClick={() => this.changePage(p)}
             >{p} </span>
