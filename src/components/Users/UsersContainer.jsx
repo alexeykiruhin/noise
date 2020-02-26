@@ -11,7 +11,7 @@ import * as axios from "axios";
 import Pagination from "./Pagination/Pagination";
 import Users from "./Users";
 
-class UsersAPI extends Component {
+class UsersContainer extends Component {
 
     getUsers = () => {
         axios
@@ -74,6 +74,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPI);
-
-export default UsersContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
