@@ -61,7 +61,9 @@ class Users extends Component {
             .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(res => {
                 this.props.setUsers(res.data.items);
-                this.props.getUsersTotalCount(res.data.totalCount);
+                if (this.props.totalUsersCount === 0){
+                    this.props.getUsersTotalCount(res.data.totalCount);
+                }
             });
     };
 
