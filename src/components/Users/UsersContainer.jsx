@@ -1,4 +1,4 @@
-import Users from "./Users";
+import UsersAPI from "./UsersAPI";
 import {connect} from "react-redux";
 import {
     changeCurrentPageAC,
@@ -38,6 +38,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
+const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPI);
 
 export default UsersContainer;
