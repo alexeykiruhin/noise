@@ -55,7 +55,7 @@ const usersReducer = (state = initialState, action) => {
         case FETCHING:
             return {
                 ...state,
-                isFetching: !state.isFetching,
+                isFetching: action.isFetching,
             };
         default:
             return state;
@@ -67,5 +67,5 @@ export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
 export const setUsersAC = (users) => ({type: SET_USERS, users});
 export const getUsersTotalCountAC = (tuc) => ({type: GET_TOTAL_USERS_COUNT, tuc});
 export const changeCurrentPageAC = (currentPage) => ({type: CHANGE_CURRENT_PAGE, currentPage});
-export const toggleIsFetchingAC = () => ({type: FETCHING});
+export const toggleIsFetchingAC = (isFetching) => ({type: FETCHING, isFetching});
 export default usersReducer;

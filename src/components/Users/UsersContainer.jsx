@@ -16,7 +16,7 @@ import preloader from "../../images/preloader.svg";
 class UsersContainer extends Component {
 
     getUsers = () => {
-        this.props.toggleIsFetching();
+        this.props.toggleIsFetching(true);
         axios
             .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(res => {
@@ -24,7 +24,7 @@ class UsersContainer extends Component {
                 if (this.props.totalUsersCount === 0){
                     this.props.getUsersTotalCount(res.data.totalCount);
                 }
-                this.props.toggleIsFetching();
+                this.props.toggleIsFetching(false);
             });
     };
 
@@ -83,8 +83,8 @@ const mapDispatchToProps = (dispatch) => {
         changeCurrentPage: (currentPage) => {
             dispatch(changeCurrentPageAC(currentPage));
         },
-        toggleIsFetching: () => {
-            dispatch(toggleIsFetchingAC());
+        toggleIsFetching: (isFetching) => {
+            dispatch(toggleIsFetchingAC(isFetching));
         },
 
     }
