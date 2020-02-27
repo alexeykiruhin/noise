@@ -1,22 +1,22 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import './App.css';
 import {Route} from 'react-router-dom';
 import CommunicationContainer from "./components/Communication/CommunicationContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
-const App = (props) => {
+const App = () => {
     return (
         <div className="app-wrapper">
             <Header/>
             <Navbar/>
             <div className="app-wrapper-content">
                 <Route path='/profile'
-                       render={ () => <Profile store={props.store} /> } />
+                       render={ () => <ProfileContainer /> } />
                 <Route path='/communication'
                        render={ () => <CommunicationContainer /> } />
                 <Route path='/news'
