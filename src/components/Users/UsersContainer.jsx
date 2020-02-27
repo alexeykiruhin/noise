@@ -11,7 +11,7 @@ import {
 import * as axios from "axios";
 import Pagination from "./Pagination/Pagination";
 import Users from "./Users";
-import preloader from "../../images/preloader.svg";
+import Preloader from "../Preloader/Preloader";
 
 class UsersContainer extends Component {
 
@@ -35,7 +35,7 @@ class UsersContainer extends Component {
     render = () => {
         let out;
         if (this.props.isFetching) {
-            out = <img src={preloader} alt="preloader"/>;
+            out = <Preloader />;
         } else {
             out = <div>
                 <div>
