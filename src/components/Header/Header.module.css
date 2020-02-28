@@ -15,7 +15,11 @@
     pointer-events: none;
 }
 
-.info {
+.loginBlock {
     grid-area: info;
     text-align: right;
+}
+
+.loginBlock a {
+    text-decoration: none;
 }
