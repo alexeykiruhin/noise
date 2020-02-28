@@ -18,13 +18,16 @@ class HeaderContainer extends Component {
     }
 
     render() {
-        return <Header {...this.props} resultCode={this.props.resultCode}/>
+        return <Header {...this.props}
+                       resultCode={this.props.resultCode}
+                       login={this.props.login} />
     }
 }
 
 const mapStateToProps = (state) => {
     return {
         resultCode: state.auth.resultCode,
+        login: state.auth.login,
     }
 };
 
