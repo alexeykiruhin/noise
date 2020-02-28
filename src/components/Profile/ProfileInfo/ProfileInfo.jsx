@@ -1,7 +1,6 @@
 import React from 'react';
 import css from './ProfileInfo.module.css';
 import Preloader from "../../Preloader/Preloader";
-import user_no_photo from '../../../images/user_no_photo_100x100.png'
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -15,7 +14,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={css.descriptionBlock}>
                 <div>
-                    <img src={props.profile.photos.large} alt={user_no_photo}/>
+                    <img src={props.profile.photos.large} alt='avatar'/>
                 </div>
                 <div>
                     {props.profile.aboutMe}
