@@ -8,18 +8,16 @@ import {
     toggleIsFetching,
     unfollow
 } from "../../redux/users_reducer";
-import * as axios from "axios";
 import Pagination from "./Pagination/Pagination";
 import Users from "./Users";
 import Preloader from "../Preloader/Preloader";
+import {getUsers} from "../../api/api";
 
 class UsersContainer extends Component {
 
     getUsers = () => {
         this.props.toggleIsFetching(true);
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then(res => {
+        getUsers(this.props.currentPage, this.props.pageSize).then(res => {
                 this.props.setUsers(res.data.items);
                 if (this.props.totalUsersCount === 0){
                     this.props.getUsersTotalCount(res.data.totalCount);

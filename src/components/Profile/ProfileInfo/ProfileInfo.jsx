@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './ProfileInfo.module.css';
 import Preloader from "../../Preloader/Preloader";
+// import ref from '../../../images/ref.svg';
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -10,7 +11,8 @@ const ProfileInfo = (props) => {
     return (
         <div>
             <div>
-                <img src="https://nysurfsoccer.org/wp-content/uploads/2017/03/IMG.png" alt="img"/>
+                {/*"https://nysurfsoccer.org/wp-content/uploads/2017/03/IMG.png"*/}
+                <img src={"https://nysurfsoccer.org/wp-content/uploads/2017/03/IMG.png"} alt="img"/>
             </div>
             <div className={css.descriptionBlock}>
                 <div>
