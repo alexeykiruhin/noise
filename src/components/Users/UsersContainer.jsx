@@ -17,10 +17,10 @@ class UsersContainer extends Component {
 
     getUsers = () => {
         this.props.toggleIsFetching(true);
-        getUsers(this.props.currentPage, this.props.pageSize).then(res => {
-                this.props.setUsers(res.data.items);
+        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+                this.props.setUsers(data.items);
                 if (this.props.totalUsersCount === 0){
-                    this.props.getUsersTotalCount(res.data.totalCount);
+                    this.props.getUsersTotalCount(data.totalCount);
                 }
                 this.props.toggleIsFetching(false);
             });
