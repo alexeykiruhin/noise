@@ -11,13 +11,13 @@ import {
 import Pagination from "./Pagination/Pagination";
 import Users from "./Users";
 import Preloader from "../Preloader/Preloader";
-import {getUsers} from "../../api/api";
+import {usersAPI} from "../../api/api";
 
 class UsersContainer extends Component {
 
     getUsers = () => {
         this.props.toggleIsFetching(true);
-        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
                 this.props.setUsers(data.items);
                 if (this.props.totalUsersCount === 0){
                     this.props.getUsersTotalCount(data.totalCount);
